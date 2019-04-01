@@ -1,0 +1,13 @@
+<div class="posts-list">
+  <a class="post" *ngFor="let post of posts" routerLink="/posts/{{post.id}}">
+    <div class="post-background" style="background-image:url('https://source.unsplash.com/weekly?beach');">
+        <div class="post-content">
+          <h3>{{ post.title }}</h3>
+          <div class="count">{{ post.comments.length }} {{post.comments.length === 1? 'Comment' : 'Comments'}} <i class="fa fa-comments-o"></i> </div>
+          <div class="description">{{ post.description }}</div>
+          <div class="postinfo">{{post.category}} <span>{{post.publishedDate | date}}</span> </div>
+        </div>
+    </div>
+  </a>
+</div>
+

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cross-training-angular';
+  titleHelper = 'Making your Life Easier';
+  title = 'What We Do?';
 }

@@ -1,0 +1,76 @@
+@import './../../common/styles/variables';
+
+.posts-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  .post {
+    position: relative;
+    width: 50%;
+    font-family: $primary-font;
+    color: $white;
+    overflow: hidden;
+    .post-background {
+      height: 360px;
+      background-position: center center;
+      background-size: cover;
+      box-shadow: 0 0 0 1000px rgba($black, 0.2) inset;
+      transition: all 350ms ease-in-out;
+      cursor: pointer;
+    }
+    .post-background:hover {
+      box-shadow: 0 0 0 1000px rgba($black, 0.4) inset;
+      h3:before {
+        width: 100px;
+      }
+    }
+    .post-content {
+      position: absolute;
+      bottom: 0;
+      padding: 30px;
+      width: 100%;
+      h3 {
+        position: relative;
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 42px;
+        margin-bottom: 20px;
+        &:before {
+          transition: all 0.5s;
+          content: " ";
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          height: 8px;
+          width: 0;
+          background-color: $white;
+          left: 0;
+          right: 0;
+        }
+      }
+      .description {
+        font-size: 16px;
+        line-height: 22px;
+        width: 75%;
+        padding-bottom: 20px;
+      }
+      .count {
+        font-style: italic;
+        font-size: 16px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+      }
+      .postinfo {
+        font-family: $secondary-font;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        span {
+          float: right;
+        }
+      }
+    }
+  }
+}
