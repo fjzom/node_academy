@@ -1,9 +1,12 @@
-@import 'app/common/styles/variables';
 /* You can add global styles to this file, and also import other style files */
-
+@import 'app/common/styles/variables';
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body {
+  font-family: $primary-font;
 }

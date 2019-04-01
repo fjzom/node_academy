@@ -1,40 +1,54 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post';
 import { Observable, of } from 'rxjs';
-import { post } from 'selenium-webdriver/http';
+import { catchError, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  postsCache: Post[];
+  cachedPosts: Post[];
+  postsUrl: string;
 
-  constructor() {
-    this.postsCache = [];
+  constructor( private http: HttpClient) {
+    this.postsUrl = 'https://private-c3edb-postsmock.apiary-mock.com/posts';
+    this.cachedPosts = [];
    }
 
   getPosts(): Observable<Post[]> {
-    const p = new Post();
-    p.id = 99;
-    p.title = 'The waves are high & beautiful';
-    p.description = 'Meh synth Schlitz, tempor duis single-origin coffee ea next level eth';
-    p.category = 'Travel';
-    p.publishedDate = new Date('2014-11-11T08:40:51.620Z');
-    p.comments = [{
-        author: 'Jon Doe',
-        id: 1,
-        content: 'hi'
-      }];
-    this.postsCache = [p];
-    return of(this.postsCache);
+    if (this.cachedPosts.length) {
+      return of(this.cachedPosts);
+    }
+    return this.http.get<Post[]>(this.postsUrl)
+      .pipe(
+        tap(posts => this.cachedPosts = posts),
+        catchError(this.handleError<Post[]>('getPosts', []))
+      );
   }
 
   getPost(postId: number): Observable<Post> {
-    const cachedPost: Post = this.postsCache.find(postItem => postItem.id === postId);
+    const cachedPost: Post = this.cachedPosts.find(postItem => postItem.id === postId);
     if (cachedPost) {
       return of(cachedPost);
     } else {
-      return of (new Post());
+      return this.http.get<Post>(`${this.postsUrl}/${postId}`)
+        .pipe(
+          catchError(this.handleError<Post>('getPost', new Post()))
+        );
     }
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 }

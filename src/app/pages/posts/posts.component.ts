@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../common/models/post';
 import { PostService } from '../../common/services/post.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-posts',
@@ -9,7 +10,10 @@ import { PostService } from '../../common/services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
-  constructor(private postService: PostService) {
+  showCreatePostForm: boolean;
+
+  constructor(private postService: PostService, private sanitizer: DomSanitizer) {
+    this.showCreatePostForm = false;
   }
 
   ngOnInit() {
@@ -21,4 +25,12 @@ export class PostsComponent implements OnInit {
        .subscribe(posts => this.posts = posts);
   }
 
+  createPost() {
+    this.showCreatePostForm = true;
+  }
+
+  onSubmitPost(post: Post) {
+    console.log('new post', post);
+    this.showCreatePostForm = false;
+  }
 }

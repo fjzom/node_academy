@@ -5,7 +5,7 @@ export class Post {
   title: string;
   shortDescription: string;
   description: string;
-  publishedDate: Date;
+  publishedAt: Date;
   category: string;
   comments: Comment[];
 }

@@ -1,6 +1,11 @@
-<p>
-  post-detail works!
-</p>
-<pre>
+<a routerLink="/posts"  mat-mini-fab color="primary" ><mat-icon>arrow_back</mat-icon></a>
+<h2>
   {{ post.title }}
-</pre>
+</h2>
+
+<h4>Comments</h4>
+<p *ngFor="let comment of post.comments">
+  <b>Comment {{comment.id}} </b> <br>
+  {{comment.content }} <br>
+  <b>Author {{comment.author}} </b>
+</p>

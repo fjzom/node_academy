@@ -1,0 +1,21 @@
+<h2>Create a Post</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="add-edit-form">
+  <mat-form-field class="field-full-width">
+    <input matInput placeholder="Title" formControlName="title" value="">
+  </mat-form-field>
+
+  <mat-form-field class="field-full-width">
+    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="field-full-width">
+    <input type="text" placeholder="Category" aria-label="Number" matInput formControlName="category" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{category}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit">Save</button>
+</form>

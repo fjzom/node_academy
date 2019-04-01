@@ -1,5 +1,15 @@
 @import './../../common/styles/variables';
 
+.mat-fab {
+  position: fixed;
+  top: 138px;
+  right: 20px;
+  z-index: 1;
+  &.mat-accent {
+    background-color: $primary;
+  }
+}
+
 .posts-list {
   display: flex;
   width: 100%;
@@ -67,6 +77,7 @@
         font-size: 12px;
         font-weight: bold;
         letter-spacing: 2px;
+        text-transform: uppercase;
         span {
           float: right;
         }
