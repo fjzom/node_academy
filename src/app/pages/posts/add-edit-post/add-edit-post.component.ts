@@ -11,17 +11,20 @@ export class AddEditPostComponent implements OnInit {
   categories: string[];
   form: FormGroup;
   @Output() submitPost: EventEmitter<Post>;
+  @Output() cancel: EventEmitter<void>;
 
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      category: ['', Validators.required]
+      category: ['', Validators.required],
+      image: ['', Validators.required],
     });
     this.categories = [
       'Travel', 'Lifestyle'
     ];
     this.submitPost = new EventEmitter<Post>();
+    this.cancel = new EventEmitter();
    }
 
   ngOnInit() {
@@ -29,13 +32,18 @@ export class AddEditPostComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      this.submitPost.emit({
-        ...new Post(),
-        title: this.form.controls.title.value
-      });
-    } else {
-      console.log('Form not valid');
+      const post = new Post();
+      post.title = this.form.controls.title.value;
+      post.description = this.form.controls.description.value;
+      post.shortDescription = post.description;
+      post.category = this.form.controls.category.value;
+      post.image = this.form.controls.image.value;
+      post.comments = [];
+      this.submitPost.emit(post);
     }
   }
 
+  onCancel(): void {
+    this.cancel.emit();
+  }
 }

@@ -30,7 +30,11 @@ export class PostsComponent implements OnInit {
   }
 
   onSubmitPost(post: Post) {
-    console.log('new post', post);
+    this.showCreatePostForm = false;
+    this.posts.unshift(post);
+  }
+
+  onCancel(): void {
     this.showCreatePostForm = false;
   }
 }

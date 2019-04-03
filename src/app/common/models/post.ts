@@ -7,5 +7,6 @@ export class Post {
   description: string;
   publishedAt: Date;
   category: string;
+  image: string;
   comments: Comment[];
 }
