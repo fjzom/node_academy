@@ -1,0 +1,79 @@
+@import './../../common/styles/variables';
+
+.post-detail-container {
+  font-family: $primary-font;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(128,128,128, 0.1);
+  .hero-banner {
+    min-height: 540px;
+    width: 100%;
+    padding: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 0 0 0 1000px rgba($black, 0.4) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $white;
+    .title {
+      color: $white;
+      font-size: 4rem;
+    }
+  }
+  .body {
+    width: 80%;
+    .description {
+      font-size: 2.7em;
+    }
+  }
+
+  .comments-container {
+    width: 600px;
+    margin: 0 auto;
+    .comments-title {
+      font-size: 2.5rem;
+    }
+    .comment-item {
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      background-color: $white;
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
+      border: 1px solid rgba(0,0,0,.09);
+      .icon {
+        .material-icons {
+          font-size: 40px;
+        }
+      }
+      .comment-item-content {
+        margin-left: 10px;
+        .author {
+          font-weight: 600;
+          font-size: 2rem;
+          margin-bottom: 10px;
+        }
+        .comment {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .comment-form {
+      .field-full-width {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-mobile-min-plus) {
+    .comments-container {
+      width: 90%;
+    }
+  }
+}
