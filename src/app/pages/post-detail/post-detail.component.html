@@ -1,11 +1,30 @@
-<a routerLink="/posts"  mat-mini-fab color="primary" ><mat-icon>arrow_back</mat-icon></a>
-<h2>
-  {{ post.title }}
-</h2>
-
-<h4>Comments</h4>
-<p *ngFor="let comment of post.comments">
-  <b>Comment {{comment.id}} </b> <br>
-  {{comment.content }} <br>
-  <b>Author {{comment.author}} </b>
-</p>
+<a routerLink="/posts" mat-mini-fab color="primary">
+  <mat-icon>arrow_back</mat-icon>
+</a>
+<div class="post-detail-container" *ngIf="post">
+  <div class="hero-banner" [ngStyle]="{'background-image':'url(' + post.image + ')'}">
+    <h2 class="title">
+      {{ post.title }}
+    </h2>
+  </div>
+  <div class="body">
+    <p class="description" [innerHTML]="post.description"></p>
+  </div>
+  <div class="comments-container">
+    <h4 class="comments-title">Comments</h4>
+    <div class="comment-item" *ngFor="let comment of post.comments" >
+      <div class="icon">
+        <i class="material-icons">account_circle</i>
+      </div>
+      <div class="comment-item-content">
+        <div class="author">{{comment.author}}</div>
+        <div class="comment">{{comment.content}}</div>
+      </div>
+    </div>
+    <form [formGroup]="form" class="comment-form">
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Write a comment" formControlName="comment"></textarea>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
