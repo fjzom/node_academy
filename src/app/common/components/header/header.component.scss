@@ -1,20 +1,18 @@
 @import '../../styles/variables';
 
 .page-title {
-  font-family: $primary-font;
   padding-top: 45px;
   padding-bottom: 45px;
   text-align: center;
   h2 {
     margin: 0;
     font-size: 60px;
-    font-weight: 700;
+    font-weight: $extra-bold;
   }
   .title-helper {
     display: inline-block;
     position: relative;
     padding: 8px 16px;
-    font-weight: 500;
     font-size: 18px;
     color: $primary;
     &:before,

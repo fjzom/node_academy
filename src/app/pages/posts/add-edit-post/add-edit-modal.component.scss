@@ -1,0 +1,14 @@
+
+@import '../../../common/styles/variables';
+.add-edit-modal {
+  text-align: center;
+  padding: 10px;
+  .mat-form-field {
+    width: 100%;
+    font-family: $primary-font;
+  }
+  .mat-flat-button {
+    min-width: 100px;
+    margin: 0 5px;
+  }
+}

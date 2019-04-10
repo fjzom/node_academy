@@ -1,0 +1,32 @@
+<div class="add-edit-modal">
+  <h1 mat-dialog-title>{{isNewPost ? 'Create Post' : 'Edit Post'}}</h1>
+  <div mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="post.title" cdkFocusInitial>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" [(ngModel)]="post.shortDescription" cdkTextareaAutosize
+        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Category" aria-label="Category" [(ngModel)]="post.category"
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="URL of the image" [(ngModel)]="post.image" type="text">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-flat-button (click)="onCancel()">Cancel</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="post">Save</button>
+  </div>
+
+</div>
