@@ -3,7 +3,7 @@ import { Post } from '../../common/models/post';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/common/services/post.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Comment } from 'src/app/common/models/comment';
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
@@ -24,7 +24,8 @@ export class PostDetailComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const comment: any = {
+      const comment: Comment = {
+        id: new Date().getMilliseconds(),
         content: this.form.controls.comment.value,
         author: 'Joe Doe'
       };
