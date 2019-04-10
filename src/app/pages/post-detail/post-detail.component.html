@@ -21,10 +21,11 @@
         <div class="comment">{{comment.content}}</div>
       </div>
     </div>
-    <form [formGroup]="form" class="comment-form">
+    <form [formGroup]="form" class="comment-form" (ngSubmit)="onSubmit()">
       <mat-form-field class="field-full-width">
         <textarea matInput placeholder="Write a comment" formControlName="comment"></textarea>
       </mat-form-field>
+      <button mat-flat-button color="primary" type="submit">Add</button>
     </form>
   </div>
 </div>

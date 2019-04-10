@@ -17,9 +17,20 @@ export class PostDetailComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      comment: new FormControl()
-   })
+      comment: new FormControl('', Validators.required)
+    });
     this.getPost();
+  }
+
+  onSubmit(): void {
+    if (this.form.valid) {
+      const comment: any = {
+        content: this.form.controls.comment.value,
+        author: 'Joe Doe'
+      };
+      this.post.comments.push(comment);
+      this.form.reset();
+    }
   }
 
   getPost(): void {

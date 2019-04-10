@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule } from '@angular/material';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostsComponent } from './pages/posts/posts.component';
@@ -31,7 +31,8 @@ import { AddEditPostComponent } from './pages/posts/add-edit-post/add-edit-post.
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

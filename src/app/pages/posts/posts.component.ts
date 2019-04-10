@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class PostsComponent implements OnInit {
   posts: Post[];
   showCreatePostForm: boolean;
+  categories: string[];
 
   constructor(private postService: PostService, private sanitizer: DomSanitizer) {
     this.showCreatePostForm = false;
@@ -18,6 +19,9 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+    this.categories = [
+      'Travel', 'Lifestyle'
+    ];
   }
 
   getPosts(): void {
