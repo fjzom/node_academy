@@ -18,8 +18,11 @@ export class PostDetailComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       comment: new FormControl()
-   })
+    });
     this.getPost();
+    if (window.pageYOffset > 250) {
+      window.scrollTo({top: 0, behavior: 'smooth' });
+    }
   }
 
   getPost(): void {

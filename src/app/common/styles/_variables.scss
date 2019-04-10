@@ -1,16 +1,23 @@
-// Fonts
-$primary-font: "Source Sans Pro", 'Arial', sans-serif;
-$secondary-font: 'Lato', 'Arial', sans-serif;
-
-// Colors
+/* Colors */
 $primary: coral;
 $white: #fff;
 $black: #000;
+$gray: #808080;
 
 
+/*  Fonts */
+$primary-font: "Source Sans Pro", sans-serif;
+$roboto: Roboto, "Helvetica Neue", sans-serif;
+// Font weights
+$normal: 400; // Source Sans Pro & Roboto
+$medium: 500; // Roboto
+$bold: 600;  // Source Sans Pro
+$extra-bold: 700; // Source Sans Pro
 
 /*  Resolution Break Points */
 $screen-mobile-min: 375px;
-$screen-mobile-min-plus: 425px;
 $screen-tablet-min: 768px;
 $screen-desktop-min: 992px;
+
+$screen-mobile-max: $screen-tablet-min - 1;
+$screen-tablet-min: $screen-desktop-min - 1;

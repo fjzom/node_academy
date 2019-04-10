@@ -1,11 +1,10 @@
 @import './../../common/styles/variables';
 
-.post-detail-container {
-  font-family: $primary-font;
+.post-detail {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(128,128,128, 0.1);
+  background-color: rgba($gray, 0.1);
   .hero-banner {
     min-height: 540px;
     width: 100%;
@@ -19,6 +18,12 @@
     align-items: center;
     flex-direction: column;
     color: $white;
+    position: relative;
+    .mat-stroked-button {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
     .title {
       color: $white;
       font-size: 4rem;
@@ -43,8 +48,8 @@
       margin-bottom: 20px;
       display: flex;
       background-color: $white;
-      box-shadow: 0 1px 4px rgba(0,0,0,.04);
-      border: 1px solid rgba(0,0,0,.09);
+      box-shadow: 0 1px 4px rgba($black,.04);
+      border: 1px solid rgba($black,.09);
       .icon {
         .material-icons {
           font-size: 40px;
@@ -71,7 +76,7 @@
     }
   }
 
-  @media screen and (max-width: $screen-mobile-min-plus) {
+  @media screen and (max-width: $screen-mobile-max) {
     .comments-container {
       width: 90%;
     }
