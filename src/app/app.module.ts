@@ -7,7 +7,7 @@ import {
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,
-  MatAutocompleteModule,
+  MatSelectModule,
   MatSnackBarModule,
   MatDialogModule,
   MatButtonToggleModule
@@ -45,7 +45,7 @@ import { AddEditModalComponent } from './pages/posts/add-edit-post/add-edit-moda
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatAutocompleteModule,
+    MatSelectModule,
     MatSnackBarModule,
     MatDialogModule,
     MatButtonToggleModule

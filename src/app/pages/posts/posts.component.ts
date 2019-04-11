@@ -19,14 +19,17 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
-    this.categories = [
-      'Travel', 'Lifestyle'
-    ];
+    this.getCategories();
   }
 
   getPosts(): void {
    this.postService.getPosts()
        .subscribe(posts => this.posts = posts);
+  }
+
+  getCategories(): void {
+    this.postService.getCategories()
+        .subscribe(categories => this.categories = categories);
   }
 
   showPostModal(post?: Post) {

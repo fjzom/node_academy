@@ -9,18 +9,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostService {
   cachedPosts: Post[];
-  postsUrl: string;
+  cachedCategories: string[];
+  baseUrl: string;
 
   constructor( private http: HttpClient) {
-    this.postsUrl = 'https://private-c3edb-postsmock.apiary-mock.com/posts';
+    this.baseUrl = 'https://private-c3edb-postsmock.apiary-mock.com';
     this.cachedPosts = [];
+    this.cachedCategories = [];
    }
 
   getPosts(): Observable<Post[]> {
     if (this.cachedPosts.length) {
       return of(this.cachedPosts);
     }
-    return this.http.get<Post[]>(this.postsUrl)
+    return this.http.get<Post[]>(`${this.baseUrl}/posts`)
       .pipe(
         tap(posts => this.cachedPosts = posts),
         catchError(this.handleError<Post[]>('getPosts', []))
@@ -32,11 +34,22 @@ export class PostService {
     if (cachedPost) {
       return of(cachedPost);
     } else {
-      return this.http.get<Post>(`${this.postsUrl}/${postId}`)
+      return this.http.get<Post>(`${this.baseUrl}/posts/${postId}`)
         .pipe(
           catchError(this.handleError<Post>('getPost', new Post()))
         );
     }
+  }
+
+  getCategories(): Observable<string[]> {
+    if (this.cachedCategories.length) {
+      return of(this.cachedCategories);
+    }
+    return this.http.get<string[]>(`${this.baseUrl}/categories`)
+      .pipe(
+        tap(posts => this.cachedCategories = posts),
+        catchError(this.handleError<string[]>('getCategories', []))
+      );
   }
 
   /**
