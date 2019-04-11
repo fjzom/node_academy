@@ -12,12 +12,16 @@ import { AddEditModalComponent } from './add-edit-post/add-edit-modal.component'
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
+  categories: string[];
 
   constructor(private postService: PostService, private snackBar: MatSnackBar, private dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.getPosts();
+    this.categories = [
+      'Travel', 'Lifestyle'
+    ];
   }
 
   getPosts(): void {

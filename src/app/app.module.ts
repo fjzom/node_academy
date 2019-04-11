@@ -9,7 +9,8 @@ import {
   MatInputModule,
   MatAutocompleteModule,
   MatSnackBarModule,
-  MatDialogModule
+  MatDialogModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +47,8 @@ import { AddEditModalComponent } from './pages/posts/add-edit-post/add-edit-moda
     MatIconModule,
     MatAutocompleteModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonToggleModule
   ],
   entryComponents: [AddEditModalComponent],
   providers: [],
