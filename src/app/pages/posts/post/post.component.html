@@ -1,0 +1,22 @@
+<div class="post">
+  <a routerLink="/posts/{{post.id}}">
+    <div class="post-background" [ngStyle]="{'background-image':'url(' + post.image + ')'}">
+      <div class="post-content">
+        <h3>{{ post.title }}</h3>
+        <div class="count">
+          {{ post.comments.length }} {{post.comments.length === 1? 'Comment' : 'Comments'}}
+          <icon-comments class="icon-comments" [fill]="'white'" [size]="'16px'"></icon-comments>
+        </div>
+        <div class="description">{{ post.shortDescription }}</div>
+        <div class="postinfo"> {{post.category}}</div>
+      </div>
+    </div>
+  </a>
+  <div class="post-actions">
+    <button mat-icon-button (click)="onEdit()">
+      <mat-icon aria-label="Edit a Post">edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onDelete()">
+      <mat-icon aria-label="Delete a Post">delete</mat-icon>
+    </button>
+  </div>

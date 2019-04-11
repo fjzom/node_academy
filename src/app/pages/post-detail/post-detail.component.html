@@ -1,8 +1,8 @@
-<a routerLink="/posts" mat-mini-fab color="primary">
-  <mat-icon>arrow_back</mat-icon>
-</a>
-<div class="post-detail-container" *ngIf="post">
+<div class="post-detail" *ngIf="post">
   <div class="hero-banner" [ngStyle]="{'background-image':'url(' + post.image + ')'}">
+    <a routerLink="/posts" mat-stroked-button>
+      <mat-icon aria-label="Back to all posts">chevron_left</mat-icon> <span> View Posts </span>
+    </a>
     <h2 class="title">
       {{ post.title }}
     </h2>

@@ -1,0 +1,87 @@
+@import './../../../common/styles/variables';
+
+.post {
+  overflow: hidden;
+  position: relative;
+  height: 360px;
+  .post-background {
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 0 0 0 1000px rgba($black, 0.2) inset;
+    transition: all 350ms ease-in-out;
+    height: 100%;
+    .post-content {
+      position: absolute;
+      bottom: 0;
+      padding: 30px;
+      width: 100%;
+      color: $white;
+      h3 {
+        position: relative;
+        font-size: 40px;
+        font-weight: $bold;
+        letter-spacing: 0;
+        line-height: 42px;
+        margin-bottom: 20px;
+        &:before {
+          transition: all 0.5s;
+          content: " ";
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          height: 8px;
+          width: 0;
+          background-color: $white;
+          left: 0;
+          right: 0;
+        }
+      }
+      .description {
+        font-size: 16px;
+        line-height: 22px;
+        width: 75%;
+        padding-bottom: 20px;
+      }
+      .count {
+        font-style: italic;
+        font-size: 1.6rem;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        .icon-comments {
+          vertical-align: middle;
+        }
+      }
+      .postinfo {
+        font-family: $roboto;
+        font-size: 1.25rem;
+        letter-spacing: 2.5px;
+        font-weight: $medium;
+        text-transform: uppercase;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0 0 1000px rgba($black, 0.4) inset;
+      .post-content {
+        h3:before {
+          width: 100px;
+        }
+      }
+    }
+  }
+  .post-actions {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    color: $white;
+    visibility: hidden;
+    opacity: 0;
+  }
+  &:hover {
+    .post-actions {
+      transition: 0.5s all;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
