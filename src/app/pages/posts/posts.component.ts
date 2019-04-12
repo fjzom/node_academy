@@ -36,6 +36,7 @@ export class PostsComponent implements OnInit {
     if (!post) {
       post = new Post();
       post.id = this.generateId();
+      post.image = 'https://source.unsplash.com/random';
       post.comments = [];
     }
     const dialogRef = this.openDialog(post);
