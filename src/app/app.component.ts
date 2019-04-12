@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   titleHelper = 'Making your Life Easier';
-  title = 'What We Do?';
+  title = 'Discovering the World';
 }
