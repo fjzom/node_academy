@@ -1,28 +1,26 @@
 @import './../../common/styles/variables';
-.posts-container {
-  .mat-fab {
-    position: fixed;
-    top: 138px;
-    right: 20px;
-    z-index: 1;
-    &.mat-accent {
-      background-color: $primary;
-    }
+.mat-fab {
+  position: fixed;
+  top: 138px;
+  right: 20px;
+  z-index: 1;
+  &.mat-accent {
+    background-color: $primary;
   }
+}
 
-  .posts-list {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    .post-item {
-      width: 50%;
-    }
+.posts-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  .post-item {
+    width: 50%;
   }
+}
 
-  .filters {
-    text-align: center;
-    .filter-button {
-      min-width: 90px;
-    }
+.filters {
+  text-align: center;
+  .filter-button {
+    min-width: 90px;
   }
 }

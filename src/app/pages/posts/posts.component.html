@@ -1,26 +1,24 @@
-<div class="posts-container">
-  <button mat-fab aria-label="Create a Post" (click)="showPostModal()" >
-    <mat-icon>edit</mat-icon>
-  </button>
+<button mat-fab aria-label="Create a Post" (click)="showPostModal()" >
+  <mat-icon>edit</mat-icon>
+</button>
 
-  <div class="filters">
-    <p>Filter by:
-      <mat-button-toggle-group #group="matButtonToggleGroup" name="category" aria-label="Category" value="All">
-        <mat-button-toggle value="All" class="filter-button">All</mat-button-toggle>
-        <mat-button-toggle *ngFor="let category of categories" [value]="category" class="filter-button">
-          {{category}}
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </p>
-  </div>
+<div class="filters">
+  <p>Filter by:
+    <mat-button-toggle-group #group="matButtonToggleGroup" name="category" aria-label="Category" value="All">
+      <mat-button-toggle value="All" class="filter-button">All</mat-button-toggle>
+      <mat-button-toggle *ngFor="let category of categories" [value]="category" class="filter-button">
+        {{category}}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
+</div>
 
-  <div class="posts-list">
-    <app-post
-      class="post-item"
-      *ngFor="let post of posts | filterPost:group.value"
-      [post]="post"
-      (delete)="deletePost(post)"
-      (edit)="showPostModal(post)">
-    </app-post>
-  </div>
+<div class="posts-list">
+  <app-post
+    class="post-item"
+    *ngFor="let post of posts | filterPost:group.value"
+    [post]="post"
+    (delete)="deletePost(post)"
+    (edit)="showPostModal(post)">
+  </app-post>
 </div>

@@ -6,7 +6,7 @@ import { Post } from '../../common/models/post';
 })
 
 export class FilterPipe implements PipeTransform {
-  transform(items: Post[], category: string): any[] {
+  transform(items: Post[], category: string): Post[] {
     if (!items) {
       return [];
     }
