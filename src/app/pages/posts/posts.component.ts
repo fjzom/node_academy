@@ -13,6 +13,7 @@ import { AddEditModalComponent } from './add-edit-post/add-edit-modal.component'
 export class PostsComponent implements OnInit {
   posts: Post[];
   categories: string[];
+  selectedCategory: string;
 
   constructor(private postService: PostService, private snackBar: MatSnackBar, private dialog: MatDialog) {
   }
@@ -20,6 +21,11 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.getPosts();
     this.getCategories();
+    this.selectedCategory = 'All';
+  }
+
+  public onValChange(val: string) {
+    this.selectedCategory = val;
   }
 
   getPosts(): void {
@@ -46,6 +52,7 @@ export class PostsComponent implements OnInit {
         const postIndex = this.posts.findIndex((postItem) => postItem.id === post.id);
         if (postIndex === -1) {
           this.posts.unshift(editedPost);
+          this.selectedCategory = 'All';
           /* TODO: Call API to create post */
         } else {
           /* TODO: Call API to UPDATE a post */
