@@ -1,5 +1,4 @@
 @import './../../common/styles/variables';
-
 .mat-fab {
   position: fixed;
   top: 138px;
@@ -16,5 +15,12 @@
   flex-wrap: wrap;
   .post-item {
     width: 50%;
+  }
+}
+
+.filters {
+  text-align: center;
+  .filter-button {
+    min-width: 90px;
   }
 }
