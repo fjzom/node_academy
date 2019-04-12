@@ -4,7 +4,7 @@
 
 <div class="filters">
   <p>
-    <mat-button-toggle-group #group="matButtonToggleGroup" name="category" aria-label="Category" value="All">
+    <mat-button-toggle-group #group="matButtonToggleGroup" name="category" aria-label="Category" [value]="selectedCategory" (change)="onValChange(group.value)">
       <mat-button-toggle value="All" class="filter-button">All</mat-button-toggle>
       <mat-button-toggle *ngFor="let category of categories" [value]="category" class="filter-button">
         {{category}}
@@ -16,7 +16,7 @@
 <div class="posts-list">
   <app-post
     class="post-item"
-    *ngFor="let post of posts | filterPost:group.value"
+    *ngFor="let post of posts | filterPost:selectedCategory"
     [post]="post"
     (delete)="deletePost(post)"
     (edit)="showPostModal(post)">
