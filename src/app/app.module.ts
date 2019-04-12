@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostComponent } from './pages/posts/post/post.component';
 import {IconCommentsComponent } from './common/components/icons/icons.component';
 import { AddEditModalComponent } from './pages/posts/add-edit-post/add-edit-modal.component';
+import { FilterPipe} from './pages/posts/filter.pipe';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AddEditModalComponent } from './pages/posts/add-edit-post/add-edit-moda
     AddEditModalComponent,
     PostComponent,
     IconCommentsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
