@@ -1,4 +1,6 @@
-# CrossTrainingAngular
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b1d5258-6809-4c9c-bbfb-78a55a1fd178/deploy-status)](https://app.netlify.com/sites/academy-angular/deploys)
+
+# Academy - Angular Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
