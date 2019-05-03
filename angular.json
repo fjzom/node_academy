@@ -29,7 +29,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/app/common/styles/_variables.scss",
+              "src/app/shared/styles/_variables.scss",
               "src/styles.scss"
             ],
             "scripts": [],

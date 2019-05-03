@@ -1,7 +1,7 @@
-@import './../../common/styles/variables';
+@import '../shared/styles/variables';
 .mat-fab {
   position: fixed;
-  top: 138px;
+  top: 145px;
   right: 20px;
   z-index: 1;
   &.mat-accent {
@@ -20,7 +20,11 @@
 
 .filters {
   text-align: center;
+  margin: 10px 0 20px;
   .filter-button {
     min-width: 90px;
+    .filter-button-text {
+      text-transform: capitalize;
+    }
   }
 }

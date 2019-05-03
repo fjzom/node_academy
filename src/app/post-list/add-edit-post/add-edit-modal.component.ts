@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Inject } from '@angular/core';
-import { Post } from 'src/app/common/models/post';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { PostService } from 'src/app/common/services/post.service';
+import { Post } from '../../shared/models/post';
+import { PostService } from '../../shared/services/post.service';
 
 @Component({
   selector: 'app-add-edit-modal',

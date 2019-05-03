@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../../common/models/post';
-import { PostService } from '../../common/services/post.service';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { Post } from '../shared/models/post';
+import { PostService } from '../shared/services/post.service';
+import { MatSnackBar,  MatDialog } from '@angular/material';
 import { AddEditModalComponent } from './add-edit-post/add-edit-modal.component';
 
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html',
+  styleUrls: ['./post-list.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class PostListComponent implements OnInit {
   posts: Post[];
   categories: string[];
   selectedCategory: string;
@@ -59,7 +59,9 @@ export class PostsComponent implements OnInit {
         }
       } else {
         const postIndex = this.posts.findIndex((postItem) => postItem.id === post.id);
-        this.posts.splice(postIndex, 1, {...prevPost});
+        if (postIndex !== -1) {
+          this.posts[postIndex] = prevPost;
+        }
       }
     });
   }
@@ -75,8 +77,9 @@ export class PostsComponent implements OnInit {
     const postIndex = this.posts.findIndex((postItem) => postItem.id === post.id);
     let redo = false;
     this.posts.splice(postIndex, 1);
-    const snackBarRef = this.snackBar.open(`Post "${post.title}" deleted`, 'UNDO', {
-      duration: 3000
+    const snackBarRef = this.snackBar.open(`Deleted Post: "${post.title}"`, 'UNDO', {
+      duration: 4000,
+      panelClass: 'snack-bar'
     });
     snackBarRef.afterDismissed().subscribe(() => {
       if (!redo) {

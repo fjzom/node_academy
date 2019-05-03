@@ -10,10 +10,9 @@
       <textarea matInput placeholder="Description" [(ngModel)]="post.shortDescription" cdkTextareaAutosize
         cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
     </mat-form-field>
-
     <mat-form-field>
       <mat-select [(ngModel)]="post.category" placeholder="Category">
-        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+        <mat-option class="category-option" *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
       </mat-select>
     </mat-form-field>
 

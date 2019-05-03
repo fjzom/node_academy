@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Post } from 'src/app/common/models/post';
+import { Post } from 'src/app/shared/models/post';
 
 @Component({
   selector: 'app-post',

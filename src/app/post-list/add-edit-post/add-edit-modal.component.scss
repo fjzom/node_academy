@@ -1,14 +1,21 @@
 
-@import '../../../common/styles/variables';
+@import '../../shared/styles/variables';
 .add-edit-modal {
   text-align: center;
   padding: 10px;
   .mat-form-field {
     width: 100%;
+    padding-bottom: 10px;
     font-family: $primary-font;
   }
   .mat-flat-button {
     min-width: 100px;
     margin: 0 5px;
   }
+  .mat-select {
+    text-transform: capitalize;
+  }
+}
+.mat-option {
+  text-transform: capitalize;
 }

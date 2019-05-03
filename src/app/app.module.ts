@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatIconModule,
@@ -15,26 +16,25 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostsComponent } from './pages/posts/posts.component';
-import { HeaderComponent } from './common/components/header/header.component';
-import { PostDetailComponent } from './pages/post-detail/post-detail.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostComponent } from './pages/posts/post/post.component';
-import {IconCommentsComponent } from './common/components/icons/icons.component';
-import { AddEditModalComponent } from './pages/posts/add-edit-post/add-edit-modal.component';
-import { FilterPipe} from './pages/posts/filter.pipe';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { PostComponent } from './post-list/post/post.component';
+import {IconCommentsComponent } from './shared/components/icons/icons.component';
+import { AddEditModalComponent } from './post-list/add-edit-post/add-edit-modal.component';
+import { FilterPostPipe } from './shared/pipes/filter-post.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent,
+    PostListComponent,
     HeaderComponent,
     PostDetailComponent,
     AddEditModalComponent,
     PostComponent,
     IconCommentsComponent,
-    FilterPipe
+    FilterPostPipe
   ],
   imports: [
     BrowserModule,

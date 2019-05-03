@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../../common/models/post';
+import { Component, OnInit } from '@angular/core';
+import { Post } from '../shared/models/post';
 import { ActivatedRoute } from '@angular/router';
-import { PostService } from 'src/app/common/services/post.service';
+import { PostService } from '../shared/services/post.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Comment } from 'src/app/common/models/comment';
+import { Comment } from '../shared/models/comment';
+
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
