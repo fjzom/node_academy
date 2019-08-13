@@ -1,9 +1,16 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../shared/models/post';
 import { PostService } from '../shared/services/post.service';
 import { MatSnackBar,  MatDialog } from '@angular/material';
 import { AddEditModalComponent } from './add-edit-post/add-edit-modal.component';
-
+ 
+//NEW//
+import getBaseUrl from '../../api/baseUrl';
+import express from 'express';
+import mongoose from 'mongoose'; 
+import Postm, {IPostm} from '../../app/shared/models/post.model';
+import chalk from 'chalk';
 
 @Component({
   selector: 'app-post-list',
@@ -13,8 +20,7 @@ import { AddEditModalComponent } from './add-edit-post/add-edit-modal.component'
 export class PostListComponent implements OnInit {
   posts: Post[];
   categories: string[];
-  selectedCategory: string;
-
+  selectedCategory: string; 
   constructor(private postService: PostService, private snackBar: MatSnackBar, private dialog: MatDialog) {
   }
 
@@ -32,7 +38,23 @@ export class PostListComponent implements OnInit {
    this.postService.getPosts()
        .subscribe(posts => this.posts = posts);
   }
-
+  //NEW// 
+  addNewPost(post: Post): void{    
+     var db = mongoose.connect('mongodb://localhost:27017/academyAngularDB', {useNewUrlParser: true});
+     Postm.id = post.id;
+     Postm.title = post.title;
+     Postm.shortDescription = post.shortDescription;
+     Postm.description = post.description;
+     Postm.publishedAt = post.publishedAt;
+     Postm.category = post.category;
+     Postm.image = post.image;
+     Postm.post.comments = post.comments;
+     var data = Postm;
+     data.save( function(err){
+       if(err)
+       console.log(`Error en la Basede datos ${chalk.green(err)}`);
+     });
+  }
   getCategories(): void {
     this.postService.getCategories()
         .subscribe(categories => this.categories = categories);
@@ -54,6 +76,9 @@ export class PostListComponent implements OnInit {
           this.posts.unshift(editedPost);
           this.selectedCategory = 'All';
           /* TODO: Call API to create post */
+          //NEW//
+          this.addNewPost(editedPost);
+
         } else {
           /* TODO: Call API to UPDATE a post */
         }
