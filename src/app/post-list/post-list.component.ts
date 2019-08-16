@@ -40,20 +40,7 @@ export class PostListComponent implements OnInit {
   }
   //NEW// 
   addNewPost(post: Post): void{    
-     var db = mongoose.connect('mongodb://localhost:27017/academyAngularDB', {useNewUrlParser: true});
-     Postm.id = post.id;
-     Postm.title = post.title;
-     Postm.shortDescription = post.shortDescription;
-     Postm.description = post.description;
-     Postm.publishedAt = post.publishedAt;
-     Postm.category = post.category;
-     Postm.image = post.image;
-     Postm.post.comments = post.comments;
-     var data = Postm;
-     data.save( function(err){
-       if(err)
-       console.log(`Error en la Basede datos ${chalk.green(err)}`);
-     });
+    this.postService.savePost(post);
   }
   getCategories(): void {
     this.postService.getCategories()

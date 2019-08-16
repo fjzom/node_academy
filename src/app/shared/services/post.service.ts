@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { Post } from '../models/post';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'; 
 //NEW//
+import express from 'express';
 import mongoose from 'mongoose';
 import Postm, {IPostm} from '../models/post.model';
+import chalk from 'chalk';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,31 @@ export class PostService {
     this.baseUrl = 'https://private-c3edb-postsmock.apiary-mock.com';
     this.cachedPosts = [];
     this.cachedCategories = []; 
+   }
+
+   savePost(post: Post): any{
+    var db = mongoose.connect('mongodb://localhost:27017/academyAngularDB', {useNewUrlParser: true})
+    .then(() => {
+      console.log('Connected to DB');
+    })
+    .catch(error => {
+      console.error('Connection to DB Failed');
+      console.error(error.message);
+      process.exit(-1);
+    });
+    Postm.id = post.id;
+    Postm.title = post.title;
+    Postm.shortDescription = post.shortDescription;
+    Postm.description = post.description;
+    Postm.publishedAt = post.publishedAt;
+    Postm.category = post.category;
+    Postm.image = post.image;
+    Postm.post.comments = post.comments;
+    var data = Postm;
+    data.save( function(err){
+      if(err)
+      console.log(`Error en la Basede datos ${chalk.green(err)}`);
+    });
    }
 
   getPosts(): Observable<Post[]> {
