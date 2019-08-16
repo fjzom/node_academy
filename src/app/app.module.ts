@@ -23,7 +23,7 @@ import { PostComponent } from './post-list/post/post.component';
 import {IconCommentsComponent } from './shared/components/icons/icons.component';
 import { AddEditModalComponent } from './post-list/add-edit-post/add-edit-modal.component';
 import { FilterPostPipe } from './shared/pipes/filter-post.pipe';
-
+import { PostService } from './shared/services/post.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,7 @@ import { FilterPostPipe } from './shared/pipes/filter-post.pipe';
     MatButtonToggleModule
   ],
   entryComponents: [AddEditModalComponent],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

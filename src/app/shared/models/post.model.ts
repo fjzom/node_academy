@@ -20,7 +20,7 @@ const PostmSchema: Schema = new Schema({
   publishedAt: { tpye: String },
   category: { tpye: String },
   image: { tpye: String },
-  comments: { type: Comment[''] }
+  comments: { type: [String] }
 });
 
 
